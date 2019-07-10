@@ -16,7 +16,7 @@ var ui;
             .classed("fondo - negro", true);
         let insBton = ui.svg_main
             .append("g")
-            .attr("transform", "translate(400,250)")
+            .attr("transform", "translate(400,450)")
             .classed("boton", true)
             .property("alto", 50)
             .property("ancho", 100)
@@ -37,7 +37,7 @@ var ui;
             .boton();
         let sboton = ui.svg_main
             .append("g")
-            .attr("transform", "translate(280,250)")
+            .attr("transform", "translate(280,450)")
             .property("alto", 50)
             .property("ancho", 100)
             .property("texto", "input")
@@ -53,13 +53,14 @@ var ui;
             .boton();
         let rect = ui.svg_main
             .append("g")
-            .attr("transform", "translate(320,200)")
+            .attr("transform", "translate(320,100)")
             .property("id", "test")
             .cajaTexto();
         let textd = ui.svg_main
             .append("g")
+            .property("id", "x")
             .attr("transform", "translate(320,150)")
-            .cajaTexto();
+            .textarea();
         let calen = ui.svg_main.append("g");
         calen
             .attr("transform", "translate(500,100)")

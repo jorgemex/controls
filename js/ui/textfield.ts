@@ -24,7 +24,8 @@ namespace ui {
       if (gCajatexto.property("id") !== undefined) {
         id = gCajatexto.property("id");
       }
-      let jsjsj = '<textarea rows="4" cols="50">s</textarea>';
+      let text = ' <input type="text" name="FirstName" value="Mickey">';
+      let textarea = '<textarea rows="4" cols="50">s</textarea>';
       rect = gCajatexto.append("g");
       rect
         .append("foreignObject")
@@ -34,7 +35,7 @@ namespace ui {
         .attr("width", 150)
         .attr("height", 30)
         //
-        .html(jsjsj);
+        .html(text);
     }
   }
 }

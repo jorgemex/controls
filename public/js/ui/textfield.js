@@ -9,7 +9,11 @@ var ui;
             console.log("gt", _gt.children
                 .item(0)
                 .children.item(0)
-                .children.item(0));
+                .children.item(0)
+            //fhifh
+            //comentario
+            //ok
+            );
         }
         textfield.textFValue = textFValue;
         function func() {
@@ -18,7 +22,8 @@ var ui;
             if (gCajatexto.property("id") !== undefined) {
                 id = gCajatexto.property("id");
             }
-            let jsjsj = '<textarea rows="4" cols="50">s</textarea>';
+            let text = ' <input type="text" name="FirstName" value="Mickey">';
+            let textarea = '<textarea rows="4" cols="50">s</textarea>';
             rect = gCajatexto.append("g");
             rect
                 .append("foreignObject")
@@ -27,7 +32,7 @@ var ui;
                 .attr("id", id)
                 .attr("width", 150)
                 .attr("height", 30)
-                .html(jsjsj);
+                .html(text);
         }
         textfield.func = func;
     })(textfield = ui.textfield || (ui.textfield = {}));
