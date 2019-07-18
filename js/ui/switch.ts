@@ -25,9 +25,10 @@ namespace ui {
         .attr("fill", "white")
         .attr("transform", "translate(16," + height / 2 + ")")
         .on("click", function() {
-          rectinterno.attr("transform", "translate(38," + height / 60 + ")");
-          d3.select(".recta").attr("fill", colors.verde);
-          rect.attr("fill");
+          if (true) {
+            rectinterno.attr("transform", "translate(38," + height / 60 + ")");
+            d3.select(".recta").attr("fill", colors.verde);
+          } else rectinterno.attr("transform", "translate(16," + height / 2 + ")");
         });
       //   rect.append("text").text("click me");
     }

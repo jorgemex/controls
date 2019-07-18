@@ -5,8 +5,8 @@ var ui;
         function crea() {
             var gDialog = this;
             gDialog.classed("gdialog", true);
-            let width = 250;
-            let height = 100;
+            let width = 315;
+            let height = 150;
             let text;
             let rect = gDialog.append("g");
             if (gDialog.property("text") !== undefined) {
@@ -14,6 +14,8 @@ var ui;
             }
             rect
                 .append("rect")
+                .transition()
+                .duration(500)
                 .attr("width", width)
                 .attr("height", height)
                 .attr("ry", 10)
@@ -22,6 +24,8 @@ var ui;
                 .style("stroke", 2);
             rect
                 .append("text")
+                .transition()
+                .duration(500)
                 .text(text)
                 .attr("fill", ui.colors.blanco)
                 .attr("x", width / 2.5)
@@ -31,41 +35,51 @@ var ui;
             });
             boton1
                 .append("rect")
-                .attr("width", width / 2 + 1)
+                .transition()
+                .duration(500)
+                .attr("width", width / 2)
                 .attr("height", height / 3)
                 .attr("fill", "#262626")
-                .attr("rx", 10)
-                .attr("ry", 10)
+                .attr("rx", 0)
+                .attr("ry", 5)
                 .attr("x", 0)
-                .attr("y", 85)
+                .attr("y", 100)
                 .style("stroke-width", 0.1)
                 .style("stroke", "white");
             boton1
                 .append("text")
-                .text("Aceptar")
+                .transition()
+                .duration(500)
+                .text("Cancelar")
                 .attr("fill", "white")
-                .attr("x", 30)
-                .attr("y", 105);
+                .attr("x", 50)
+                .attr("y", 125);
             let boton2 = rect.append("g").on("click", function () {
                 rect.remove();
             });
             boton2
                 .append("rect")
-                .attr("width", width / 2 + 1)
+                .transition()
+                .duration(500)
+                .attr("width", width / 2)
                 .attr("height", height / 3)
                 .attr("fill", "#262626")
-                .attr("rx", 10)
-                .attr("ry", 8)
-                .attr("x", 125)
-                .attr("y", 85)
+                .attr("rx", 0)
+                .attr("ry", 5)
+                .attr("x", 158)
+                .attr("y", 100)
                 .style("stroke-width", 0.1)
-                .style("stroke", "white");
+                .style("stroke-opacity", 10)
+                .style("fill-opacity", 100)
+                .style("stroke", "#d3d3d3");
             boton2
                 .append("text")
-                .text("cancelar")
+                .transition()
+                .duration(500)
+                .text("Aceptar")
                 .attr("fill", "white")
-                .attr("x", 160)
-                .attr("y", 105);
+                .attr("x", 210)
+                .attr("y", 125);
         }
         dialogs.crea = crea;
     })(dialogs = ui.dialogs || (ui.dialogs = {}));

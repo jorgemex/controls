@@ -23,7 +23,7 @@ var ui;
             .on("click", function () {
             let val = document.getElementById("msg").value;
             diaog
-                .attr("transform", "translate(80,410)")
+                .attr("transform", "translate(45,450)")
                 .property("text", val)
                 .dialogs();
         })
@@ -59,7 +59,10 @@ var ui;
         let switc = ui.svg_main.append("g");
         switc.attr("transform", "translate(50, 410)").switchs();
         //
-        // diaog;
+        let check = ui.svg_main.append("g")
+            .attr("transform", "translate(50,450)");
+        check.append("input")
+            .attr("type", "checkbox");
     }
     ui.ini = ini;
 })(ui || (ui = {}));

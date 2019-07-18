@@ -25,7 +25,7 @@ namespace ui {
         let val = (<HTMLInputElement>document.getElementById("msg")).value;
 
         diaog
-          .attr("transform", "translate(80,410)")
+          .attr("transform", "translate(45,450)")
           .property("text", val)
           .dialogs();
       })
@@ -71,7 +71,9 @@ namespace ui {
 
     switc.attr("transform", "translate(50, 410)").switchs();
     //
-
-    // diaog;
+      let check = svg_main.append("g")
+      .attr("transform","translate(50,450)");
+      check.append("input")
+      .attr("type", "checkbox")
   }
 }
