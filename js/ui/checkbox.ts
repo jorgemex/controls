@@ -2,7 +2,7 @@ namespace ui {
   export namespace checkbox {
     export type DataType = { x: any; y: any };
     export function d3CheckBox() {
-      var size = 20,
+      let size = 20,
         x: any,
         y: any,
         rx: any,
@@ -25,7 +25,7 @@ namespace ui {
             .style({
               "fill-opacity": 0,
               "stroke-width": boxStrokeWidth,
-              stroke: "black"
+              "stroke": "black"
             });
 
         //Data to represent the check mark
@@ -55,7 +55,7 @@ namespace ui {
             "opacity": checked ? 1 : 0
           });
 
-        g.on("click", function() {
+        g.on("click", ()=> {
           checked = !checked;
           mark.style("opacity", checked ? 1 : 0);
 
@@ -70,37 +70,37 @@ namespace ui {
         return checkBox;
       };
 
-      checkBox.x = function(val) {
+      checkBox.x =(val)=> {
         x = val;
         return checkBox;
       };
 
-      checkBox.y = function(val) {
+      checkBox.y =(val)=> {
         y = val;
         return checkBox;
       };
 
-      checkBox.rx = function(val) {
+      checkBox.rx =(val)=> {
         rx = val;
         return checkBox;
       };
 
-      checkBox.ry = function(val) {
+      checkBox.ry = (val)=> {
         ry = val;
         return checkBox;
       };
 
-      checkBox.markStrokeWidth = function(val) {
+      checkBox.markStrokeWidth =(val)=> {
         markStrokeWidth = val;
         return checkBox;
       };
 
-      checkBox.boxStrokeWidth = function(val) {
+      checkBox.boxStrokeWidth=(val)=> {
         boxStrokeWidth = val;
         return checkBox;
       };
 
-      checkBox.checked = function(val) {
+      checkBox.checked =(val ?)=> {
         if (val === undefined) {
           return checked;
         } else {
@@ -109,7 +109,7 @@ namespace ui {
         }
       };
 
-      checkBox.clickEvent = function(val) {
+      checkBox.clickEvent =(val)=> {
         clickEvent = val;
         return checkBox;
       };

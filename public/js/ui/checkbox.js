@@ -3,7 +3,7 @@ var ui;
     let checkbox;
     (function (checkbox) {
         function d3CheckBox() {
-            var size = 20, x, y, rx, ry, markStrokeWidth = 3, boxStrokeWidth = 3, checked = false, clickEvent;
+            let size = 20, x, y, rx, ry, markStrokeWidth = 3, boxStrokeWidth = 3, checked = false, clickEvent;
             function checkBox(selection) {
                 var g = selection.append("g"), box = g
                     .append("rect")
@@ -16,7 +16,7 @@ var ui;
                     .style({
                     "fill-opacity": 0,
                     "stroke-width": boxStrokeWidth,
-                    stroke: "black"
+                    "stroke": "black"
                 });
                 //Data to represent the check mark
                 var coordinates = [
@@ -42,7 +42,7 @@ var ui;
                     "fill": "none",
                     "opacity": checked ? 1 : 0
                 });
-                g.on("click", function () {
+                g.on("click", () => {
                     checked = !checked;
                     mark.style("opacity", checked ? 1 : 0);
                     if (clickEvent)
@@ -54,31 +54,31 @@ var ui;
                 size = val;
                 return checkBox;
             };
-            checkBox.x = function (val) {
+            checkBox.x = (val) => {
                 x = val;
                 return checkBox;
             };
-            checkBox.y = function (val) {
+            checkBox.y = (val) => {
                 y = val;
                 return checkBox;
             };
-            checkBox.rx = function (val) {
+            checkBox.rx = (val) => {
                 rx = val;
                 return checkBox;
             };
-            checkBox.ry = function (val) {
+            checkBox.ry = (val) => {
                 ry = val;
                 return checkBox;
             };
-            checkBox.markStrokeWidth = function (val) {
+            checkBox.markStrokeWidth = (val) => {
                 markStrokeWidth = val;
                 return checkBox;
             };
-            checkBox.boxStrokeWidth = function (val) {
+            checkBox.boxStrokeWidth = (val) => {
                 boxStrokeWidth = val;
                 return checkBox;
             };
-            checkBox.checked = function (val) {
+            checkBox.checked = (val) => {
                 if (val === undefined) {
                     return checked;
                 }
@@ -87,7 +87,7 @@ var ui;
                     return checkBox;
                 }
             };
-            checkBox.clickEvent = function (val) {
+            checkBox.clickEvent = (val) => {
                 clickEvent = val;
                 return checkBox;
             };

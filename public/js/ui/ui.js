@@ -59,10 +59,28 @@ var ui;
         let switc = ui.svg_main.append("g");
         switc.attr("transform", "translate(50, 410)").switchs();
         //
-        let check = ui.svg_main.append("g")
-            .attr("transform", "translate(50,450)");
-        check.append("input")
-            .attr("type", "checkbox");
+        var checkBox1 = ui.checkbox.d3CheckBox();
+        var txt = ui.svg_main
+            .append("g")
+            .attr("transform", "translate(50,500)")
+            .append("text")
+            .attr("x", 10)
+            .attr("y", 80), update = function () {
+            var checked1 = checkBox1.checked();
+            txt.text(checked1 + ", ");
+        };
+        checkBox1
+            .size(30)
+            .x(70)
+            .y(500)
+            .rx(5)
+            .ry(5)
+            .markStrokeWidth(3)
+            .boxStrokeWidth(4)
+            .clickEvent(update)
+            .checked(true);
+        ui.svg_main.call(checkBox1);
+        // diaog;
     }
     ui.ini = ini;
 })(ui || (ui = {}));
