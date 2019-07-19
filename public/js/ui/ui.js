@@ -56,46 +56,77 @@ var ui;
         let parametro = "nombre";
         let drop = ui.svg_main.append("g");
         drop.attr("transform", "translate(20,50)").dropdown(url, parametro);
-        let switc = ui.svg_main.append("g");
-        switc.attr("transform", "translate(50, 410)").switchs();
-        //
-        var checkBox1 = ui.checkbox.d3CheckBox(), checkBox2 = ui.checkbox.d3CheckBox(), checkBox3 = ui.checkbox.d3CheckBox();
+        var swiitch = ui.swiitch.d3Switch();
+        let switc = ui.svg_main
+            .append("g")
+            .attr("transform", "translate(50,450)")
+            .append("text")
+            .attr("y", 40)
+            .attr("x", 10)
+            .text("switch False");
+        update = () => {
+            var //checked1 = checkBox1.checked(),
+            check = swiitch.checked();
+            //checked3 = checkBox3.checked();
+            switc.text("switch " + check);
+            //txt.text(checked1 + ", " + checked2 + " , "+checked3);
+            //console.log("checked1",checked1);
+            console.log("check principal", check);
+            //console.log("checked3",checked3);
+        };
+        swiitch
+            .size(30)
+            .x(0)
+            .y(0)
+            .markStrokeWidth(3)
+            .boxStrokeWidth(1)
+            .clickEvent(update)
+            .checked(false);
+        ui.svg_main.call(swiitch);
+        var //checkBox1 =  ui.checkbox.d3CheckBox(),
+        checkBox2 = ui.checkbox.d3CheckBox();
+        //checkBox3 = ui.checkbox.d3CheckBox();
         var txt = ui.svg_main
             .append("g")
-            .attr("transform", "translate(50,500)")
             .append("text")
             .attr("x", 10)
             .attr("y", 80)
             .text("clickea"), update = () => {
-            var checked1 = checkBox1.checked(), checked2 = checkBox2.checked(), checked3 = checkBox3.checked();
-            txt.text(checked1 + ", " + checked2 + " , " + checked3);
+            var //checked1 = checkBox1.checked(),
+            checked2 = checkBox2.checked();
+            //checked3 = checkBox3.checked();
+            txt.text(checked2 + "");
+            //txt.text(checked1 + ", " + checked2 + " , "+checked3);
+            //console.log("checked1",checked1);
+            //console.log("checked2", checked2);
+            //console.log("checked3",checked3);
         };
-        checkBox1
-            .size(30)
-            .x(70)
-            .y(500)
-            .markStrokeWidth(10)
-            .boxStrokeWidth(4)
-            .clickEvent(update)
-            .checked(true);
+        // checkBox1
+        //   .size(30)
+        //   .x(70)
+        //   .y(500)
+        //   .markStrokeWidth(10)
+        //   .boxStrokeWidth(4)
+        //   .clickEvent(update)
+        //   .checked(true);
         checkBox2
             .size(30)
-            .x(110)
-            .y(500)
+            .x(70)
+            .y(530)
             .rx(5)
             .ry(5)
             .markStrokeWidth(3)
-            .boxStrokeWidth(4)
+            .boxStrokeWidth(2)
             .clickEvent(update)
             .checked(true);
-        checkBox3
-            .x(150)
-            .y(500)
-            .clickEvent(update)
-            .checked(true);
-        ui.svg_main.call(checkBox1);
+        // checkBox3
+        // .x(150)
+        // .y(500)
+        // .clickEvent(update)
+        // .checked(true);
+        //svg_main.call(checkBox1);
         ui.svg_main.call(checkBox2);
-        ui.svg_main.call(checkBox3);
+        //svg_main.call(checkBox3);
         // diaog;
     }
     ui.ini = ini;

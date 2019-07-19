@@ -18,7 +18,7 @@ var ui;
                     .style("stroke", "black");
                 //Data to represent the check mark
                 var coordinates = [
-                    { x: x + (size / 8), y: y + (size / 3) },
+                    { x: x + (size / 8), y: y + (size / 2) },
                     { x: x + (size / 2.2), y: (y + size) - (size / 4) },
                     { x: (x + size) - (size / 8), y: (y + (size / 10)) }
                 ];
