@@ -71,83 +71,33 @@ namespace ui {
 
     let switc = svg_main
       .append("g")
-      .attr("transform", "translate(50,450)")
+      .call(swiitch)
+      .attr("transform", "translate(50,630)")
       .append("text")
-      .attr("y", 40)
-      .attr("x", 10)
-      .text("switch False");
+      .attr("y", 45)
+      .attr("x", 0)
+      .text("switch False")
       update = () => {
-        var //checked1 = checkBox1.checked(),
-          check = swiitch.checked();
-        //checked3 = checkBox3.checked();
+        let check = swiitch.checked();
         switc.text("switch "+ check);
-        //txt.text(checked1 + ", " + checked2 + " , "+checked3);
-        //console.log("checked1",checked1);
-        console.log("check principal", check);
-        //console.log("checked3",checked3);
       };
+    swiitch.clickEvent(update).checked(false);
 
-    swiitch
-      .size(30)
-      .x(0)
-      .y(0)
 
-      .markStrokeWidth(3)
-      .boxStrokeWidth(1)
-      .clickEvent(update)
-      .checked(false);
-    svg_main.call(swiitch);
-
-    var //checkBox1 =  ui.checkbox.d3CheckBox(),
-      checkBox2 = ui.checkbox.d3CheckBox();
-    //checkBox3 = ui.checkbox.d3CheckBox();
+    var checkBox2 = ui.checkbox.d3CheckBox();
 
     var txt = svg_main
         .append("g")
+        .call(checkBox2)
+        .attr("transform", "translate(50,500)")
         .append("text")
-        .attr("x", 10)
-        .attr("y", 80)
-        .text("clickea"),
+        .attr("x", 0)
+        .attr("y", 50)
+        .text("checkbox false"),
       update = () => {
-        var //checked1 = checkBox1.checked(),
-          checked2 = checkBox2.checked();
-        //checked3 = checkBox3.checked();
-        txt.text(checked2 + "");
-        //txt.text(checked1 + ", " + checked2 + " , "+checked3);
-        //console.log("checked1",checked1);
-        //console.log("checked2", checked2);
-        //console.log("checked3",checked3);
+        var checked2 = checkBox2.checked();
+        txt.text("checkbox "+checked2);
       };
-
-    // checkBox1
-    //   .size(30)
-    //   .x(70)
-    //   .y(500)
-    //   .markStrokeWidth(10)
-    //   .boxStrokeWidth(4)
-    //   .clickEvent(update)
-    //   .checked(true);
-
-    checkBox2
-      .size(30)
-      .x(70)
-      .y(530)
-      .rx(5)
-      .ry(5)
-      .markStrokeWidth(3)
-      .boxStrokeWidth(2)
-      .clickEvent(update)
-      .checked(true);
-
-    // checkBox3
-    // .x(150)
-    // .y(500)
-    // .clickEvent(update)
-    // .checked(true);
-
-    //svg_main.call(checkBox1);
-    svg_main.call(checkBox2);
-    //svg_main.call(checkBox3);
-    // diaog;
+      checkBox2.clickEvent(update).checked(false);
   }
 }

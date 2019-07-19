@@ -3,7 +3,7 @@ var ui;
     let checkbox;
     (function (checkbox) {
         function d3CheckBox() {
-            let size = 20, x, y, rx, ry, markStrokeWidth = 3, boxStrokeWidth = 3, checked = false, clickEvent;
+            let size = 30, x = 0, y = 0, rx = 5, ry = 5, markStrokeWidth = 3, boxStrokeWidth = 3, checked = false, clickEvent;
             function checkBox(selection) {
                 var g = selection.append("g"), box = g
                     .append("rect")

@@ -2,11 +2,11 @@ namespace ui {
   export namespace checkbox {
   
     export function d3CheckBox() {
-      let size = 20,
-        x: any,
-        y: any,
-        rx: any,
-        ry: any,
+      let size = 30,
+        x=0,
+        y=0,
+        rx=5,
+        ry=5,
         markStrokeWidth = 3,
         boxStrokeWidth = 3,
         checked = false,

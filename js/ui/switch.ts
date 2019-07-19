@@ -5,10 +5,10 @@ namespace ui {
       let size = 30,
         x=0,
         y=0,
-        rx= 10,
-        ry= 10,
+        rx= 13,
+        ry= 13,
         markStrokeWidth = 3,
-        boxStrokeWidth = 3,
+        boxStrokeWidth = 1,
         checked = true,
         clickEvent;
 
@@ -16,8 +16,8 @@ namespace ui {
         var g = selection.append("g"),
           box = g
             .append("rect")
-            .attr("width", 70)
-            .attr("height", 25)
+            .attr("width", 55)
+            .attr("height", 28)
             .attr("x", x)
             .attr("y", y)
             .attr("rx", rx)
@@ -27,26 +27,13 @@ namespace ui {
             .style("stroke-width", boxStrokeWidth)
             .style("stroke", "black");
 
-        //Data to represent the check mark
-        var coordinates = [
-          {x: x + (size / 8), y: y + (size / 2)},
-          
-          {x: x + (size / 2.2), y: (y + size) - (size / 4)},
-          {x: (x + size) - (size / 8), y: (y + (size / 10))}
-        ];
-        
-        type DataType = { x: any; y: any };
-        var line = d3.line<DataType>()
-          .x(d => {return d.x;})
-          .y(d => {return d.y;});
-
         var mark = g.append("circle")
-          .attr("r", 11)
+          .attr("r", 12)
           .style("stroke-width", markStrokeWidth)
           .style("stroke", "white")
           .attr("fill", "white")
-          .attr('cx', 12)
-          .attr('cy', 12);
+          .attr('cx', 15)
+          .attr('cy', 14)
           
           
           // var mark = g.append("path")
@@ -55,59 +42,22 @@ namespace ui {
           // .style("stroke", "black")
           // .style("fill", "none")
           // .attr("transform","translate(0,0)")
-
           //.style("opacity", (checked)? 1 : 0)
 
-        g.on("click", () => {
+        mark.on("click", () => {
           checked =!checked;
-          //mark.style("opacity", (checked) ? 1 : 0);
           if(checked ==true){
-            mark.attr('cx', 56).attr('cy', 12)
+            mark.attr('cx', 41).attr('cy', 14)
             box.attr("fill","#64bd63")
           }
           else{
-            mark.attr('cx', 12).attr('cy', 12)
+            mark.attr('cx', 15).attr('cy', 14)
             box.attr("fill","#d3d3d3")          }
           if (clickEvent)
                 clickEvent();
           d3.event.stopPropagation();
         });
       }
-
-      fSwitch.size = (val) => {
-        size = val;
-        return fSwitch;
-      };
-
-      fSwitch.x = (val) => {
-        x = val;
-        return fSwitch;
-      };
-
-      fSwitch.y = (val) => {
-        y = val;
-        return fSwitch;
-      };
-
-      fSwitch.rx = (val) => {
-        rx = val;
-        return fSwitch;
-      };
-
-      fSwitch.ry = (val) => {
-        ry = val;
-        return fSwitch;
-      };
-
-      fSwitch.markStrokeWidth = (val) => {
-        markStrokeWidth = val;
-        return fSwitch;
-      };
-
-      fSwitch.boxStrokeWidth = (val) => {
-        boxStrokeWidth = val;
-        return fSwitch;
-      };
 
       fSwitch.checked = (val?) => {
         if (val === undefined) {
