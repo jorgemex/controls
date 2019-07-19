@@ -1,6 +1,6 @@
 namespace ui {
   export namespace checkbox {
-    export type DataType = { x: any; y: any };
+  
     export function d3CheckBox() {
       let size = 20,
         x: any,
@@ -22,85 +22,74 @@ namespace ui {
             .attr("y", y)
             .attr("rx", rx)
             .attr("ry", ry)
-            .style({
-              "fill-opacity": 0,
-              "stroke-width": boxStrokeWidth,
-              "stroke": "black"
-            });
+            .style("fill-opacity", 0,)
+            .style("stroke-width", boxStrokeWidth)
+            .style("stroke", "black");
 
         //Data to represent the check mark
         var coordinates = [
-          { x: x + size / 8, y: y + size / 3 },
-          { x: x + size / 2.2, y: y + size - size / 4 },
-          { x: x + size - size / 8, y: y + size / 10 }
+          {x: x + (size / 8), y: y + (size / 3)},
+          {x: x + (size / 2.2), y: (y + size) - (size / 4)},
+          {x: (x + size) - (size / 8), y: (y + (size / 10))}
         ];
+        
+        type DataType = { x: any; y: any };
+        var line = d3.line<DataType>()
+          .x(d => {return d.x;})
+          .y(d => {return d.y;});
 
-        var line = d3
-          .line<DataType>()
-          .x(d => {
-            return d.x;
-          })
-          .y(d => {
-            return d.y;
-          })
-          .curve(d3.curveBasis);
-
-        var mark = g
-          .append("path")
+        var mark = g.append("path")
           .attr("d", line(coordinates))
-          .style({
-            "stroke-width": markStrokeWidth,
-            "stroke": "black",
-            "fill": "none",
-            "opacity": checked ? 1 : 0
-          });
+          .style("stroke-width", markStrokeWidth)
+          .style("stroke", "black")
+          .style("fill", "none")
+          .style("opacity", (checked)? 1 : 0);
 
-        g.on("click", ()=> {
+        g.on("click", () => {
           checked = !checked;
-          mark.style("opacity", checked ? 1 : 0);
-
-          if (clickEvent) clickEvent();
-
+          mark.style("opacity", (checked) ? 1 : 0);
+          if (clickEvent)
+                clickEvent();
           d3.event.stopPropagation();
         });
       }
 
-      checkBox.size = val => {
+      checkBox.size = (val) => {
         size = val;
         return checkBox;
       };
 
-      checkBox.x =(val)=> {
+      checkBox.x = (val) => {
         x = val;
         return checkBox;
       };
 
-      checkBox.y =(val)=> {
+      checkBox.y = (val) => {
         y = val;
         return checkBox;
       };
 
-      checkBox.rx =(val)=> {
+      checkBox.rx = (val) => {
         rx = val;
         return checkBox;
       };
 
-      checkBox.ry = (val)=> {
+      checkBox.ry = (val) => {
         ry = val;
         return checkBox;
       };
 
-      checkBox.markStrokeWidth =(val)=> {
+      checkBox.markStrokeWidth = (val) => {
         markStrokeWidth = val;
         return checkBox;
       };
 
-      checkBox.boxStrokeWidth=(val)=> {
+      checkBox.boxStrokeWidth = (val) => {
         boxStrokeWidth = val;
         return checkBox;
       };
 
-      checkBox.checked =(val ?)=> {
+      checkBox.checked = (val?) => {
         if (val === undefined) {
           return checked;
         } else {
@@ -109,7 +98,7 @@ namespace ui {
         }
       };
 
-      checkBox.clickEvent =(val)=> {
+      checkBox.clickEvent = (val) => {
         clickEvent = val;
         return checkBox;
       };
