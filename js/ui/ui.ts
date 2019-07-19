@@ -25,7 +25,7 @@ namespace ui {
         let val = (<HTMLInputElement>document.getElementById("msg")).value;
 
         diaog
-          .attr("transform", "translate(80,410)")
+          .attr("transform", "translate(45,450)")
           .property("text", val)
           .dialogs();
       })
@@ -71,7 +71,53 @@ namespace ui {
 
     switc.attr("transform", "translate(50, 410)").switchs();
     //
+    var checkBox1 =  ui.checkbox.d3CheckBox(),
+        checkBox2 = ui.checkbox.d3CheckBox(),
+        checkBox3 = ui.checkbox.d3CheckBox();
 
+    var txt = svg_main
+        .append("g")
+        .attr("transform", "translate(50,500)")
+        .append("text")
+        .attr("x", 10)
+        .attr("y", 80)
+        .text("clickea"),
+      update = ()=> {
+        var checked1 = checkBox1.checked(),
+            checked2 = checkBox2.checked(),
+            checked3 = checkBox3.checked();
+            txt.text(checked1 + ", " + checked2 + " , "+checked3);
+      };
+
+    checkBox1
+      .size(30)
+      .x(70)
+      .y(500)
+      .markStrokeWidth(10)
+      .boxStrokeWidth(4)
+      .clickEvent(update)
+      .checked(true);
+
+      checkBox2
+      .size(30)
+      .x(110)
+      .y(500)
+      .rx(5)
+      .ry(5)
+      .markStrokeWidth(3)
+      .boxStrokeWidth(4)
+      .clickEvent(update)
+      .checked(true)
+
+      checkBox3
+      .x(150)
+      .y(500)
+      .clickEvent(update)
+      .checked(true);
+
+    svg_main.call(checkBox1);
+    svg_main.call(checkBox2);
+    svg_main.call(checkBox3);
     // diaog;
   }
 }
