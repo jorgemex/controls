@@ -2,27 +2,25 @@ var ui;
 (function (ui) {
     let swiitch;
     (function (swiitch_1) {
+        swiitch_1.valor123 = false;
         function crea() {
             let gSwitch = this;
             var swiitch = d3Switch();
             gSwitch.classed("switch", true);
-            let switc = gSwitch
-                .append("g")
-                .call(swiitch)
-                .append("text")
-                .attr("x", 6)
-                .attr("y", 50)
-                .text("swicth");
-            function update() {
-                var check = swiitch.checked();
-                switc.text(check + "");
-                return check;
-            }
-            swiitch.clickEvent(update).checked(false);
+            let switc = gSwitch.append("g").call(swiitch);
+            //   .append("text")
+            //   .attr("x", 6)
+            //   .attr("y", 50)
+            //   .text("swicth");
+            // function update() {
+            //   var check = swiitch.checked();
+            //   switc.text(check + "");
+            // }
+            // swiitch.clickEvent(update).checked(false);
         }
         swiitch_1.crea = crea;
         function vlswi() {
-            return "no se";
+            return swiitch_1.valor123;
         }
         swiitch_1.vlswi = vlswi;
         function d3Switch() {
@@ -52,33 +50,18 @@ var ui;
                     checked = !checked;
                     if (checked == true) {
                         mark.attr("cx", 41).attr("cy", 14);
-                        mark.attr("val");
                         box.attr("fill", "#64bd63");
-                        console.log(checked);
                     }
                     else {
                         mark.attr("cx", 15).attr("cy", 14);
                         box.attr("fill", "#d3d3d3");
-                        console.log(checked);
                     }
+                    swiitch_1.valor123 = checked;
                     if (clickEvent)
                         clickEvent();
                     d3.event.stopPropagation();
                 });
             }
-            fSwitch.checked = (val) => {
-                if (val === undefined) {
-                    return checked;
-                }
-                else {
-                    checked = val;
-                    return fSwitch;
-                }
-            };
-            fSwitch.clickEvent = val => {
-                clickEvent = val;
-                return fSwitch;
-            };
             return fSwitch;
         }
         swiitch_1.d3Switch = d3Switch;

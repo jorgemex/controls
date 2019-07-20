@@ -36,9 +36,8 @@ namespace ui {
       .append("g")
       .attr("transform", "translate(230,320)")
       .on("click", function() {
-        let texto = d3.select("#test").textfieldvalue();
-        console.log(texto);
-        alert(texto);
+        let val = ui.swiitch.valor123;
+        console.log(val);
       })
       .boton("input", "green", colors.naranja);
 

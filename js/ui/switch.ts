@@ -1,27 +1,23 @@
 namespace ui {
   export namespace swiitch {
+    export let valor123 = false;
     export function crea() {
       let gSwitch = this as d3.Selection<any, any, any, any>;
       var swiitch = d3Switch();
       gSwitch.classed("switch", true);
-      let switc = gSwitch
-        .append("g")
-        .call(swiitch)
-        .append("text")
-        .attr("x", 6)
-        .attr("y", 50)
-        .text("swicth");
-
-      function update() {
-        var check = swiitch.checked();
-        switc.text(check + "");
-        return check;
-      }
-
-      swiitch.clickEvent(update).checked(false);
+      let switc = gSwitch.append("g").call(swiitch);
+      //   .append("text")
+      //   .attr("x", 6)
+      //   .attr("y", 50)
+      //   .text("swicth");
+      // function update() {
+      //   var check = swiitch.checked();
+      //   switc.text(check + "");
+      // }
+      // swiitch.clickEvent(update).checked(false);
     }
     export function vlswi() {
-      return "no se";
+      return valor123;
     }
 
     export function d3Switch() {
@@ -63,33 +59,16 @@ namespace ui {
           checked = !checked;
           if (checked == true) {
             mark.attr("cx", 41).attr("cy", 14);
-            mark.attr("val");
             box.attr("fill", "#64bd63");
-            console.log(checked);
           } else {
             mark.attr("cx", 15).attr("cy", 14);
             box.attr("fill", "#d3d3d3");
-            console.log(checked);
           }
+          valor123 = checked;
           if (clickEvent) clickEvent();
           d3.event.stopPropagation();
         });
       }
-
-      fSwitch.checked = (val?) => {
-        if (val === undefined) {
-          return checked;
-        } else {
-          checked = val;
-          return fSwitch;
-        }
-      };
-
-      fSwitch.clickEvent = val => {
-        clickEvent = val;
-        return fSwitch;
-      };
-
       return fSwitch;
     }
   }
