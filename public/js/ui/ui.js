@@ -52,37 +52,18 @@ var ui;
             .style("pointer-events", "all")
             .attr("id", "calendario")
             .calendar();
+        let swi = ui.svg_main
+            .append("g")
+            .attr("transform", "translate(150,450)")
+            .dswitch();
         let url = "js/data/actual.json";
         let parametro = "nombre";
         let drop = ui.svg_main.append("g");
         drop.attr("transform", "translate(20,50)").dropdown(url, parametro);
-        var swiitch = ui.swiitch.d3Switch();
-        let switc = ui.svg_main
+        var checkbox = ui.svg_main
             .append("g")
-            .call(swiitch)
-            .attr("transform", "translate(50,630)")
-            .append("text")
-            .attr("y", 45)
-            .attr("x", 0)
-            .text("switch False");
-        update = () => {
-            let check = swiitch.checked();
-            switc.text("switch " + check);
-        };
-        swiitch.clickEvent(update).checked(false);
-        var checkBox2 = ui.checkbox.d3CheckBox();
-        var txt = ui.svg_main
-            .append("g")
-            .call(checkBox2)
-            .attr("transform", "translate(50,500)")
-            .append("text")
-            .attr("x", 0)
-            .attr("y", 50)
-            .text("checkbox false"), update = () => {
-            var checked2 = checkBox2.checked();
-            txt.text("checkbox " + checked2);
-        };
-        checkBox2.clickEvent(update).checked(false);
+            .attr("transform", "translate(50,450)")
+            .checkbox();
     }
     ui.ini = ini;
 })(ui || (ui = {}));
