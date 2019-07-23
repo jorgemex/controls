@@ -1,15 +1,14 @@
 namespace ui {
   export namespace checkbox {
-    export function crea() {
+    export function crea(size: any) {
       let gChecked = this as d3.Selection<any, any, any, any>;
       gChecked.property("value", false);
-      let size = 30,
-        x = 0,
+      let x = 0,
         y = 0,
-        rx = 5,
-        ry = 5,
-        markStrokeWidth = 3,
-        boxStrokeWidth = 3,
+        rx = size / 4,
+        ry = size / 4,
+        markStrokeWidth = 4,
+        boxStrokeWidth = 2,
         checked = false,
         clickEvent;
 

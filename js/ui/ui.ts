@@ -40,10 +40,12 @@ namespace ui {
         let sw2 = swi2.valswitch();
         let ch = checkbox.property("value");
         let ch2 = checkbox1.property("value");
+
         console.log("sw1", swi.property("value"));
         console.log("sw2", swi2.property("value"));
         console.log("check", ch);
         console.log("check2", ch2);
+        console.log("radio ", radiob.valRadioButton());
 
         // if (sw1 == true) {
         //   console.log("entro a true");
@@ -76,27 +78,32 @@ namespace ui {
 
     let swi = svg_main.append("g");
     swi.classed("swi1", true);
-    swi.attr("transform", "translate(150,450)").dswitch();
+    swi.attr("transform", "translate(150,450)").dswitch(70);
     swi.attr("id", "swi1");
-    swi.valswitch(); // let chk = swi.property("value", checked);
 
     let swi2 = svg_main
       .append("g")
       .classed("swi2", true)
-      .attr("transform", "translate(150, 490)");
-    swi2.dswitch();
-    swi2.valswitch();
+      .attr("transform", "translate(150, 500)");
+    swi2.dswitch(70);
+
+    let dro = svg_main.append("g");
+    dro.attr("transform", "translate(150, 520)");
+    dro.drop();
 
     var checkbox = svg_main.append("g");
-    checkbox.attr("transform", "translate(50,450)").checkbox();
+    checkbox.attr("transform", "translate(50,450)").checkbox(30);
 
     var checkbox1 = svg_main.append("g");
-    checkbox1.attr("transform", "translate(50,490)").checkbox();
+    checkbox1.attr("transform", "translate(50,490)").checkbox(30);
+
+    var radiob = svg_main.append("g");
+    radiob.attr("transform", "translate(50, 540)").RadioButton(30);
 
     let url = "js/data/actual.json";
     let parametro = "nombre";
 
     let drop = svg_main.append("g");
-    drop.attr("transform", "translate(20,100)").dropdown(url, parametro);
+    drop.attr("transform", "translate(20,50)").dropdown(url, parametro);
   }
 }

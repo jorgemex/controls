@@ -2,10 +2,10 @@ var ui;
 (function (ui) {
     let checkbox;
     (function (checkbox) {
-        function crea() {
+        function crea(size) {
             let gChecked = this;
             gChecked.property("value", false);
-            let size = 30, x = 0, y = 0, rx = 5, ry = 5, markStrokeWidth = 3, boxStrokeWidth = 3, checked = false, clickEvent;
+            let x = 0, y = 0, rx = size / 4, ry = size / 4, markStrokeWidth = 4, boxStrokeWidth = 2, checked = false, clickEvent;
             var g = gChecked.append("g"), box = g
                 .append("rect")
                 .attr("width", size)

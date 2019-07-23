@@ -2,14 +2,14 @@ var ui;
 (function (ui) {
     let swiitch;
     (function (swiitch) {
-        function crea() {
+        function crea(size) {
             let gSwitch = this;
             gSwitch.property("value", false);
-            let size = 30, x = 0, y = 0, rx = 13, ry = 13, markStrokeWidth = 3, boxStrokeWidth = 1, checked = false, clickEvent;
+            let x = 0, y = 0, rx = size / 4, ry = size / 4, markStrokeWidth = 0.2, boxStrokeWidth = 1, checked = false, clickEvent;
             var g = gSwitch.append("g"), box = g
                 .append("rect")
-                .attr("width", 55)
-                .attr("height", 28)
+                .attr("width", size)
+                .attr("height", size / 2)
                 .attr("x", x)
                 .attr("y", y)
                 .attr("rx", rx)
@@ -20,20 +20,20 @@ var ui;
                 .style("stroke", "black");
             var mark = g
                 .append("circle")
-                .attr("r", 12)
+                .attr("r", size / 4.2)
                 .style("stroke-width", markStrokeWidth)
-                .style("stroke", "white")
+                .style("stroke", "black")
                 .attr("fill", "white")
-                .attr("cx", 15)
-                .attr("cy", 14);
+                .attr("cx", size / 4)
+                .attr("cy", size / 4);
             mark.on("click", () => {
                 checked = !checked;
                 if (checked == true) {
-                    mark.attr("cx", 41).attr("cy", 14);
+                    mark.attr("cx", size / 1.33).attr("cy", size / 4);
                     box.attr("fill", "#64bd63");
                 }
                 else {
-                    mark.attr("cx", 15).attr("cy", 14);
+                    mark.attr("cx", size / 4).attr("cy", size / 4);
                     box.attr("fill", "#d3d3d3");
                 }
                 gSwitch.property("value", checked);
