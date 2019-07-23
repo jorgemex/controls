@@ -32,8 +32,19 @@ var ui;
             .append("g")
             .attr("transform", "translate(230,320)")
             .on("click", function () {
-            let val = ui.swiitch.valor123;
-            console.log(val);
+            let sw1 = swi.valswitch();
+            let sw2 = swi2.valswitch();
+            let ch = checkbox.property("value");
+            let ch2 = checkbox1.property("value");
+            console.log("sw1", swi.property("value"));
+            console.log("sw2", swi2.property("value"));
+            console.log("check", ch);
+            console.log("check2", ch2);
+            // if (sw1 == true) {
+            //   console.log("entro a true");
+            // } else {
+            //   console.log("val esta en: " + sw1);
+            // }
         })
             .boton("input", "green", ui.colors.naranja);
         let rect = ui.svg_main
@@ -51,18 +62,26 @@ var ui;
             .style("pointer-events", "all")
             .attr("id", "calendario")
             .calendar();
-        let swi = ui.svg_main
+        //let a = d3.select("id").property("value");
+        let swi = ui.svg_main.append("g");
+        swi.classed("swi1", true);
+        swi.attr("transform", "translate(150,450)").dswitch();
+        swi.attr("id", "swi1");
+        swi.valswitch(); // let chk = swi.property("value", checked);
+        let swi2 = ui.svg_main
             .append("g")
-            .attr("transform", "translate(150,450)")
-            .dswitch();
+            .classed("swi2", true)
+            .attr("transform", "translate(150, 490)");
+        swi2.dswitch();
+        swi2.valswitch();
+        var checkbox = ui.svg_main.append("g");
+        checkbox.attr("transform", "translate(50,450)").checkbox();
+        var checkbox1 = ui.svg_main.append("g");
+        checkbox1.attr("transform", "translate(50,490)").checkbox();
         let url = "js/data/actual.json";
         let parametro = "nombre";
         let drop = ui.svg_main.append("g");
-        drop.attr("transform", "translate(20,50)").dropdown(url, parametro);
-        var checkbox = ui.svg_main
-            .append("g")
-            .attr("transform", "translate(50,450)")
-            .checkbox();
+        drop.attr("transform", "translate(20,100)").dropdown(url, parametro);
     }
     ui.ini = ini;
 })(ui || (ui = {}));

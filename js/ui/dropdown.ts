@@ -15,13 +15,13 @@ namespace ui {
       function dragMove() {
         let _ey = d3.event.y;
         let _gt = d3.select(this).node() as SVGAElement;
-        let _gp = _gt.parentNode.children.item(2);
+        //let _gp = _gt.parentNode.children.item(2);
         console.log("mensaje");
 
         _gt.setAttribute("transform", "translate(0," + _ey + ")");
         //_gp.setAttribute("transform", "translate(0," + (-1 * _ey + ")"));
         console.log("ey", _ey);
-        console.log(_gp);
+        //console.log(_gp);
       }
       /**
        *
