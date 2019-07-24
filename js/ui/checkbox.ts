@@ -47,7 +47,6 @@ namespace ui {
         .attr("d", line(coordinates))
         .style("stroke-width", markStrokeWidth)
         .style("stroke", "black")
-        .attr("id", "che")
         .style("fill", "none")
         .style("opacity", checked ? 1 : 0);
 

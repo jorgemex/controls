@@ -2,7 +2,7 @@ var ui;
 (function (ui) {
     let boton;
     (function (boton) {
-        function func(texto, borde, color) {
+        function crea(texto, borde, color) {
             let gboton = this;
             let alto = 30;
             let ancho = 150;
@@ -24,10 +24,10 @@ var ui;
             //gboton.alignment();
             return gboton;
         }
-        boton.func = func;
+        boton.crea = crea;
     })(boton = ui.boton || (ui.boton = {}));
 })(ui || (ui = {}));
-d3.selection.prototype.boton = ui.boton.func;
+d3.selection.prototype.boton = ui.boton.crea;
 // .on("mouseover", function () {
 //     rect.attr("fill", colors.naranja);
 // })

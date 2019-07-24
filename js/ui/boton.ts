@@ -1,6 +1,6 @@
 namespace ui {
   export namespace boton {
-    export function func(texto: any, borde: any, color: any) {
+    export function crea(texto: any, borde: any, color: any) {
       let gboton = this as d3.Selection<any, any, any, any>;
       let alto = 30;
       let ancho = 150;
@@ -27,7 +27,7 @@ namespace ui {
   }
 }
 
-d3.selection.prototype.boton = ui.boton.func;
+d3.selection.prototype.boton = ui.boton.crea;
 
 // .on("mouseover", function () {
 //     rect.attr("fill", colors.naranja);

@@ -46,7 +46,7 @@ namespace ui {
         console.log("check", ch);
         console.log("check2", ch2);
         console.log("radio ", radiob.valRadioButton());
-
+        console.log("radio 2 ", radiob2.valRadioButton());
         // if (sw1 == true) {
         //   console.log("entro a true");
         // } else {
@@ -99,6 +99,9 @@ namespace ui {
 
     var radiob = svg_main.append("g");
     radiob.attr("transform", "translate(50, 540)").RadioButton(30);
+
+    var radiob2 = svg_main.append("g");
+    radiob2.attr("transform", "translate(50, 580)").RadioButton(30);
 
     let url = "js/data/actual.json";
     let parametro = "nombre";

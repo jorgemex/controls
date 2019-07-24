@@ -41,6 +41,7 @@ var ui;
             console.log("check", ch);
             console.log("check2", ch2);
             console.log("radio ", radiob.valRadioButton());
+            console.log("radio 2 ", radiob2.valRadioButton());
             // if (sw1 == true) {
             //   console.log("entro a true");
             // } else {
@@ -82,6 +83,8 @@ var ui;
         checkbox1.attr("transform", "translate(50,490)").checkbox(30);
         var radiob = ui.svg_main.append("g");
         radiob.attr("transform", "translate(50, 540)").RadioButton(30);
+        var radiob2 = ui.svg_main.append("g");
+        radiob2.attr("transform", "translate(50, 580)").RadioButton(30);
         let url = "js/data/actual.json";
         let parametro = "nombre";
         let drop = ui.svg_main.append("g");
